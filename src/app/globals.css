@@ -2,32 +2,63 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+.trans {
+  transition: all 300ms ease-in-out;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.pacifico-regular {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+}
+
+.gridcc {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+}
+.gridcc-2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 588px) {
+  .footer {
+    flex-wrap: wrap;
+  }
+}
+@media screen and (max-width: 430px) {
+  .text {
+    font-size: 2.5rem;
+  }
+  .text2 {
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 530px) {
+  .text2 {
+    font-size: 2.5rem;
+  }
+}
+@media screen and (max-width: 879px) {
+  .box-7 {
+    display: flex;
+    justify-items: center;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@media screen and (min-width: 880px) {
+  .box-8 {
+    display: flex;
+    justify-items: center;
+    gap: 0.25rem;
   }
 }

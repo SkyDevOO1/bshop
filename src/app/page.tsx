@@ -1,113 +1,211 @@
+import { Layout } from "@/ui/components/Layout/Layout";
+import { Card } from "@/ui/components/card/card";
+import Container from "@/ui/components/container/container";
+import { Button } from "@/ui/design/Button/Button";
+import Typography from "@/ui/design/Typography/Typography";
 import Image from "next/image";
-
+import Link from "next/link";
+import { RiMailFill, RiShoppingBagFill, RiWhatsappFill } from "react-icons/ri";
 export default function Home() {
+  interface cardDataType {
+    cardTitle: string;
+    cardContent: string;
+    cardImgSrc: string;
+    cardImgAlt: string;
+  }
+  const cardData: cardDataType[] = [
+    {
+      cardTitle: "Personnalisation Distinctive",
+      cardContent:
+        "Explorez nos produit exclusifs pour une touche unique au quotidien.",
+      cardImgSrc: "svg/Personalization.svg",
+      cardImgAlt: "illustration d'une personnalisation",
+    },
+    {
+      cardTitle: "Achat Simplifié",
+      cardContent:
+        " Personnalisez, ajoutez au panier, et finalisez votre commande en toute simplicité.",
+      cardImgSrc: "svg/Plain-credit-card.svg",
+      cardImgAlt: "illustration d'un paiyement par credit card",
+    },
+    {
+      cardTitle: "Livraison Express",
+      cardContent:
+        "Recevez rapidement vos produits personnalisés chez vous à Conakry, pour une expérience d'achat exceptionnelle",
+      cardImgSrc: "svg/Delivery-address.svg",
+      cardImgAlt: "illustration d'une livraison",
+    },
+  ];
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    <>
+      <Layout>
+        <Container className="py-10 space-y-20">
+          <div className="space-y-3 ">
+            <div className="w-full flex items-center gap-3">
+              <div className="w-full z-10 space-y-3">
+                <Typography
+                  variant="h1"
+                  component="h1"
+                  className="max-w-md text"
+                >
+                  Prêt à révolutionner votre shopping à Conakry ?
+                </Typography>
+                <Typography
+                  variant="caption2"
+                  component="p"
+                  className="max-w-xl"
+                  theme="gray"
+                >
+                  À Conakry, vous ne cherchez pas simplement un produit, vous
+                  cherchez une expérience unique. Chez Bshop, nous sommes fiers
+                  de vous proposer une sélection exclusive de produit
+                  personnalisés qui sauront ajouter une touche d'originalité à
+                  votre quotidien.
+                </Typography>
+              </div>
+              <div className="hidden md:block">
+                <Image
+                  height={630}
+                  width={630}
+                  src="/assets/svg/Ecommerce-web-page.svg"
+                  alt="illustration d'une personne entrain de faire du shopping"
+                />
+              </div>
+            </div>
+            <div className="">
+              <Button baseUrl="/boutique" icon={{ icon: RiShoppingBagFill }}>
+                Visitez notre Boutique
+              </Button>
+            </div>
+          </div>
+          <div className="space-y-7">
+            <Typography
+              variant="h1"
+              component="h2"
+              className="text-center text2"
+            >
+              De l'Exploration à la Personnalisation
+            </Typography>
+            <Typography
+              variant="caption2"
+              component="p"
+              className="text-center"
+              theme="gray"
+            >
+              De la découverte à la réception soignée à Conakry, Bshop vous
+              offre une expérience de personnalisation fluide. Choisissez,
+              personnalisez, et finalisez votre commande en quelques clics,
+              bénéficiant d'une livraison rapide pour préserver l'intégrité de
+              chaque création. Profitez d'une expérience shopping
+              exceptionnelle, de la commande à la livraison, avec Bshop.
+            </Typography>
+            <div className="flex flex-wrap  md:flex items-start justify-center gap-7">
+              {cardData.map((data, index) => (
+                <Card
+                  key={index}
+                  cardTitle={data.cardTitle}
+                  cardContent={data.cardContent}
+                  imageSrc={data.cardImgSrc}
+                  imageAlt={data.cardImgAlt}
+                />
+              ))}
+            </div>
+          </div>
+          <div className="space-y-3">
+            <div className="flex flex-col items-center w-full sm:flex-row-reverse gap-3">
+              <div className="w-full z-10 space-y-3">
+                <Typography
+                  variant="h2"
+                  component="h3"
+                  className="max-w-md text"
+                >
+                  Avez-vous des questions ?
+                </Typography>
+                <Typography
+                  variant="caption2"
+                  component="p"
+                  className="max-w-xl"
+                  theme="gray"
+                >
+                  Nous sommes là pour vous aider ! N'hésitez pas à poser toutes
+                  vos questions ou à partager vos préoccupations en utilisant la
+                  section dédiée sur notre site. Notre équipe dévouée se fera un
+                  plaisir de vous assister et de garantir une expérience d'achat
+                  exceptionnelle."
+                </Typography>
+                <div className="space-x-3 space-y-3">
+                  <Button
+                    variant="outline"
+                    baseUrl="https://whatsapp.com"
+                    linkType="external"
+                    icon={{ icon: RiWhatsappFill }}
+                  >
+                    Whatsapp
+                  </Button>
+                  <Button
+                    variant="outline"
+                    baseUrl="mailto:nouhouporeco3@gmail.com"
+                    icon={{ icon: RiMailFill }}
+                  >
+                    E-mail
+                  </Button>
+                </div>
+              </div>
+              <div className="w-full md:bloc ">
+                <Image
+                  height={430}
+                  width={430}
+                  src="/assets/svg/questions-animate.svg"
+                  alt="illustration d'une personne entrain de faire du shopping"
+                />
+              </div>
+            </div>
+          </div>
+          <div className="space-y-3">
+            <div className="flex flex-col items-center w-full sm:flex-row-reverse gap-3">
+              <div className="w-full z-10 space-y-3">
+                <Typography
+                  variant="h2"
+                  component="h3"
+                  className="max-w-md text"
+                >
+                  Avez-vous des questions ?
+                </Typography>
+                <Typography
+                  variant="caption2"
+                  component="p"
+                  className="max-w-xl"
+                  theme="gray"
+                >
+                  Notre équipe dévouée de service clientèle est disponible
+                  24h/24 pour répondre à toutes vos questions. Composée de
+                  professionnels passionnés, elle est prête à vous assister avec
+                  réactivité, que ce soit pour des détails sur nos produits, des
+                  conseils de personnalisation ou toute autre demande.
+                  Contactez-nous via le chat en direct sur notre site ou par
+                  e-mail à{" "}
+                  <Link
+                    href={"mailto:bshop.support@gmail.com"}
+                    className="text-primary-500"
+                  >
+                    bshop.support@gmail.com.
+                  </Link>{" "}
+                  Votre satisfaction est notre priorité absolue chez Bshop.
+                </Typography>
+              </div>
+              <div className="w-full md:bloc ">
+                <Image
+                  height={430}
+                  width={430}
+                  src="/assets/svg/Service-24-7.svg"
+                  alt="illustration d'une personne entrain de faire du shopping"
+                />
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Layout>
+    </>
   );
 }
