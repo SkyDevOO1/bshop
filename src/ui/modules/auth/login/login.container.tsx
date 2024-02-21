@@ -1,3 +1,4 @@
+"use client";
 import { useToggle } from "@/hooks/use-toggle";
 import { LoginFormFieldType } from "@/types/forms";
 import { SubmitHandler, useForm } from "react-hook-form";

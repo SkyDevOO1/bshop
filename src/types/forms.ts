@@ -17,5 +17,5 @@ export interface LoginFormFieldType {
 export interface registerFormFieldType {
   email: string;
   password: string;
-  phoneNumeber: string;
+  phoneNumber: string;
 }
