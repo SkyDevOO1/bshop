@@ -1,16 +1,14 @@
 export interface UserInterface {
-  uid: number;
-  displayName: string | null;
-  email: string | null;
-  phoneNumber: string | null;
-  emailVerified: boolean;
-  photoURL: string | null;
+  uid: string;
+  displayName: string;
+  email: string;
+  phoneNumber: string;
+  photoURL: string;
   userDocument?: userDocument;
-  // userShoppingCart: shoppingCartType
 }
 
 export interface userDocument {
-  uid: number;
+  uid: string;
   email: string;
   phoneNumber: string;
   creation_date: string;

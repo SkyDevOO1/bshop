@@ -1,28 +1,26 @@
 import { UserInterface } from "@/interface/user-interface";
-import axios from "axios";
-import { cookies } from "next/headers";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
-export default async function useAuth() {
+export const UseAuth = () => {
   const [authUser, setAuthUser] = useState<UserInterface | null>(null);
   const [authUserIsLoading, setAuthUserIsLoading] = useState<boolean>(true);
+  // useEffect(() => {
+  //   const handleAuthUser = async () => {
+  //     const getToken = "access_token";
+  //     const response = await axios.post("/api/useauth", getToken);
 
-  useEffect(() => {
-    const findUser = async () => {
-      try {
-        const connexionToken = cookies().get("connexionToken");
-        const user = await axios.post("/api/useauth", connexionToken);
-        setAuthUser(user.data);
-        setAuthUserIsLoading(false);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    findUser();
-  }, []);
+  //     if (response.data) {
+  //       console.log(response);
+
+  //       setAuthUserIsLoading(false);
+  //     }
+  //   };
+
+  //   // handleAuthUser();
+  // }, []);
 
   return {
     authUser,
     authUserIsLoading,
   };
-}
+};

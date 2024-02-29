@@ -2,10 +2,13 @@
 import { useToggle } from "@/hooks/use-toggle";
 import { registerFormFieldType } from "@/types/forms";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import { RegisterView } from "./register.view";
 
 export const RegisterContainer = () => {
+  const router = useRouter();
   const { value: isLoading, setValue: setIsLoading, toggle } = useToggle();
   const {
     register,
@@ -19,6 +22,7 @@ export const RegisterContainer = () => {
 
   const onSubmit: SubmitHandler<registerFormFieldType> = async (formData) => {
     setIsLoading(true);
+
     const { email, password, phoneNumber } = formData;
     if (password.trim.length >= 8) {
       setError("password", {
@@ -35,11 +39,15 @@ export const RegisterContainer = () => {
 
     try {
       const { data } = await axios.post("/api/auth/inscription", formData);
-      console.log(data);
+
+      setIsLoading(false);
+      toast.success(data.message);
+      reset();
+      router.push("/mon-espace");
     } catch (error) {
+      setIsLoading(false);
       console.log(error);
     }
-    setIsLoading(false);
   };
 
   return (

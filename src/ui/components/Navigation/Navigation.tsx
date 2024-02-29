@@ -12,6 +12,9 @@ import Container from "../container/container";
 
 export const Navigation = () => {
   const [istoogle, setIsToogle] = useState(false);
+  // const Auth = useAuth();
+
+  // console.log(Auth.authUser);
 
   return (
     <>
