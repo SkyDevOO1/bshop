@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   const body = await request.json();
   const { email, password } = body;
+
   const handlUserExist = async (email: string) => {
     const userData = await prisma.user.findUnique({
       where: {
@@ -24,17 +25,18 @@ export async function POST(request: Request) {
     }
 
     const userPasswordInDb = userData.password;
+
     const passCompare = await bcrypt.compare(password, userPasswordInDb);
+
     if (passCompare) {
       cookies().set("access_token", userData.token, {
         secure: true,
         httpOnly: true,
         maxAge: 2419200,
       });
+
       return NextResponse.json({
         message: "connexion avec succèss",
-        data: userData,
-        passCompare,
       });
     } else {
       return NextResponse.json({

@@ -25,10 +25,19 @@ export const LoginContainer = () => {
     try {
       const { data } = await axios.post("/api/auth/connexion", formData);
 
-      toast.success(data.message);
-      setIsLoading(false);
-      reset();
-      router.push("/mon-espace");
+      if (data.message !== "connexion avec succèss") {
+        setIsLoading(false);
+        toast.error(data.message);
+      } else {
+        toast.success(data.message);
+      }
+      if (data.message === "connexion avec succèss") {
+        setIsLoading(false);
+
+        reset();
+
+        router.push("/mon-espace");
+      }
     } catch (error) {
       console.log(error);
       setIsLoading(false);

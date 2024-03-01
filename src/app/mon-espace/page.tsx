@@ -11,7 +11,7 @@ export default function Monespace() {
       <Layout>
         <Container className="mt-3 mb-3">
           <div className="w-full flex items-center justify-between">
-            <div className="p-4 max-w-96">
+            <div className=" max-w-96">
               <Box clasName="flex flex-col space-y-5">
                 <div className="space-y-1 flex items-center space-x-10">
                   <img
