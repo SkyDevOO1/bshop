@@ -1,4 +1,6 @@
 import { AuthUserProvoder } from "@/context/useContext";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ToastContainer } from "react-toastify";
@@ -23,6 +25,8 @@ export default function RootLayout({
         <body className={inter.className}>
           <ToastContainer position="top-center" />
           {children}
+          <SpeedInsights />
+          <Analytics />
         </body>
       </html>
     </AuthUserProvoder>
