@@ -6,17 +6,25 @@ export const UseAuth = () => {
   const [authUserIsLoading, setAuthUserIsLoading] = useState<boolean>(true);
   // useEffect(() => {
   //   const handleAuthUser = async () => {
-  //     const getToken = "access_token";
-  //     const response = await axios.post("/api/useauth", getToken);
+  //     // const Token = {
+  //     //   tokenName: "access_token",
+  //     // };
+  //     const cok = cookies().getAll("access_token").toString();
 
-  //     if (response.data) {
-  //       console.log(response);
+  //     const user = await prisma.user.findMany({
+  //       where: {
+  //         token: Cookies as string,
+  //       },
+  //     });
 
-  //       setAuthUserIsLoading(false);
-  //     }
+  //     // const response = await fetch("/api/useauth");
+  //     // const data = await response.json();
+  //     console.log(user);
+
+  //     setAuthUserIsLoading(false);
   //   };
 
-  //   // handleAuthUser();
+  //   handleAuthUser();
   // }, []);
 
   return {

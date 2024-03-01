@@ -1,4 +1,5 @@
 "use client";
+import { useAuth } from "@/context/useContext";
 import Link from "next/link";
 import { useState } from "react";
 import {
@@ -12,9 +13,9 @@ import Container from "../container/container";
 
 export const Navigation = () => {
   const [istoogle, setIsToogle] = useState(false);
-  // const Auth = useAuth();
+  const Auth = useAuth();
 
-  // console.log(Auth.authUser);
+  console.log(Auth.authUser);
 
   return (
     <>

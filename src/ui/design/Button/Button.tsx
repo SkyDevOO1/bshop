@@ -6,7 +6,14 @@ import { Spinner } from "../Spinner/Spinner";
 interface Props {
   size?: "small" | "medium" | "large";
   children?: React.ReactNode;
-  variant?: "outline" | "secondary" | "accent" | "disabled" | "ico" | "gray";
+  variant?:
+    | "outline"
+    | "secondary"
+    | "accent"
+    | "disabled"
+    | "ico"
+    | "gray"
+    | "danger";
   theme?: "primary" | "secondary" | "gray";
   weight?: "small" | "medium" | "large";
   className?: string;
@@ -66,6 +73,10 @@ export const Button = ({
     case "disabled":
       variantStyle =
         "bg-gray-400/70 border rounded border-gray-500 text-gray-500 cursor-not-allowed";
+      break;
+    case "danger":
+      variantStyle =
+        "bg-alert-danger border rounded trans text-white hover:bg-alert-danger/80";
       break;
     case "ico":
       if (iconTheme === "accent") {
@@ -162,7 +173,9 @@ export const Button = ({
             <icon.icon size={icosize} />
           </>
         ) : (
-          <div className={clsx(icon && "flex items-center gap-1")}>
+          <div
+            className={clsx(icon && "flex items-center gap-1 justify-center")}
+          >
             {icon && iconPosition === "left" && <icon.icon size={icosize} />}
             {children}
             {icon && iconPosition === "right" && <icon.icon size={icosize} />}

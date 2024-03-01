@@ -16,6 +16,7 @@ model User {
   email       String   @unique
   password    String
   phoneNumber String
+  photoURL    String?
   token       String
   creatAt     DateTime @default(now())
 }

@@ -1,7 +1,7 @@
 import { prisma } from "@/lib/prisma";
+import bcrypt from "bcrypt";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
-
 export async function POST(request: Request) {
   const body = await request.json();
   const { email, password } = body;
@@ -24,16 +24,23 @@ export async function POST(request: Request) {
     }
 
     const userPasswordInDb = userData.password;
-
-    if (password === userPasswordInDb) {
+    const passCompare = await bcrypt.compare(password, userPasswordInDb);
+    if (passCompare) {
       cookies().set("access_token", userData.token, {
         secure: true,
         httpOnly: true,
         maxAge: 2419200,
       });
+      return NextResponse.json({
+        message: "connexion avec succèss",
+        data: userData,
+        passCompare,
+      });
+    } else {
+      return NextResponse.json({
+        message: "Addess email ou mot de passe incorrecte",
+      });
     }
-
-    return NextResponse.json({ message: "connexion avec succèss" });
   } catch (error) {
     console.log(error);
 
